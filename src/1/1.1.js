@@ -1,8 +1,12 @@
 const fs = require('fs');
-const { calcFuel } = require('./lib');
 
-const lines = fs.readFileSync('./input').toString().split(/\r?\n/);
+module.exports.calcFuel = (input) => (
+  Math.floor(input / 3) - 2
+);
 
-const res = lines.map(calcFuel).reduce((prev, curr) => prev + curr);
+module.exports.run = () => {
+  const lines = fs.readFileSync('./input').toString().split(/\r?\n/);
+  const res = lines.map(this.calcFuel).reduce((prev, curr) => prev + curr);
 
-console.log(res);
+  console.log(res);
+};
