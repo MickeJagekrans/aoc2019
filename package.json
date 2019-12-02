@@ -1,0 +1,23 @@
+{
+  "name": "aoc2019",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MickeJagekrans/aoc2019.git"
+  },
+  "author": "Mikael Jagekrans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MickeJagekrans/aoc2019/issues"
+  },
+  "homepage": "https://github.com/MickeJagekrans/aoc2019#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  }
+}
