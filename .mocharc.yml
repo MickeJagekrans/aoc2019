@@ -1,2 +1,2 @@
 reporter: spec
-spec: '**/*.test.js'
+spec: 'src/**/*.test.js'
