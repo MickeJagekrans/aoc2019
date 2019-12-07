@@ -1,13 +1,12 @@
-module.exports.compute = (input, pc = 0) => {
-  const intcodes = input.split(',').map(x => parseInt(x));
-  const [opcode, inPosA, inPosB, outPos] = intcodes.slice(pc, 4 + pc);
+module.exports.compute = (input, ip = 0) => {
+  const [opcode, paramA, paramB, outPos] = input.slice(ip, 4 + ip);
 
   if (opcode === 99) {
     return input;
   }
 
-  const inA = intcodes[inPosA];
-  const inB = intcodes[inPosB];
+  const inA = input[paramA];
+  const inB = input[paramB];
 
   let opRes;
 
@@ -22,7 +21,7 @@ module.exports.compute = (input, pc = 0) => {
       throw new Error('Invalid opcode');
   }
 
-  intcodes[outPos] = opRes;
+  input[outPos] = opRes;
 
-  return this.compute(intcodes.join(','), pc + 4);
+  return this.compute(input, ip + 4);
 };
