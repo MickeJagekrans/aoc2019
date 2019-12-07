@@ -1,5 +1,5 @@
 module.exports.compute = (input, ip = 0) => {
-  const [opcode, paramA, paramB, outPos] = input.slice(ip, 4 + ip);
+  const [opcode, paramA, paramB, outPos] = input.slice(ip, ip + 4);
 
   if (opcode === 99) {
     return input;
@@ -18,7 +18,7 @@ module.exports.compute = (input, ip = 0) => {
       opRes = inA * inB;
       break;
     default:
-      throw new Error('Invalid opcode');
+      throw new Error('invalid opcode');
   }
 
   input[outPos] = opRes;
