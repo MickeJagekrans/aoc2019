@@ -1,10 +1,10 @@
-module.exports.compute = (input) => {
-  if (input === '99') {
+module.exports.compute = (input, pc = 0) => {
+  const intcodes = input.split(',').map(x => parseInt(x));
+  const [opcode, inPosA, inPosB, outPos] = intcodes.slice(pc, 4 + pc);
+
+  if (opcode === 99) {
     return input;
   }
-
-  const intcodes = input.split(',').map(x => parseInt(x));
-  const [opcode, inPosA, inPosB, outPos] = intcodes;
 
   const inA = intcodes[inPosA];
   const inB = intcodes[inPosB];
@@ -24,5 +24,5 @@ module.exports.compute = (input) => {
 
   intcodes[outPos] = opRes;
 
-  return intcodes.join(',');
+  return this.compute(intcodes.join(','), pc + 4);
 };
